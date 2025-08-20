@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App.js"
+import "./index.css"
+import { BrowserRouter } from "react-router-dom"
+import { CustomerAuthProvider } from "./context/CustomerAuthContext.js" 
+import { AdminAuthProvider } from "./context/AdminAuthContext.js" 
+import { BookingProvider } from "./context/BookingContext.js"
+import { ListingProvider } from "./context/ListingContext.js"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <CustomerAuthProvider>
+      <AdminAuthProvider>
+        <ListingProvider>
+          {" "}
+          <BookingProvider>
+            {" "}
+            <App />
+          </BookingProvider>
+        </ListingProvider>
+      </AdminAuthProvider>
+    </CustomerAuthProvider>
+  </BrowserRouter>,
+)

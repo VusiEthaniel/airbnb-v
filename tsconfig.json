@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",  // Must be "react-jsx" or "react-jsxdev"
+    "jsxImportSource": "react",  // Add this line
+    // ... rest of your config
+  }
+}
